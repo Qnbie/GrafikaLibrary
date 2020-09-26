@@ -2,20 +2,33 @@
 #include <math.h>
 
 template <class T>
-struct Dnum
+class Dnum
 {
+public:
 	float f;	//függvény érték
 	T d;		//függvény derivált
 
-	Dnum(float f0, float d0 = 0) {
+	Dnum(float f0 = 0, float d0 = 0) {
 		f = f0;
 		d = d0;
 	}
 
-	Dnum operator+(Dnum data);
-	Dnum operator-(Dnum data);
-	Dnum operator*(Dnum data);
-	Dnum operator/(Dnum data);
+	Dnum operator+(Dnum data) 
+	{
+		return Dnum<T>(f + data.f, d + data.d);
+	}
+	Dnum operator-(Dnum data)
+	{
+		return Dnum<T>(f - data.f, d - data.d);
+	}
+	Dnum operator*(Dnum data)
+	{
+		return Dnum<T>(f + data.f, d * data.f + f * data.d);
+	}
+	Dnum operator/(Dnum data)
+	{
+		return Dnum<T>(f / data.f, (d * data.f + f * data.d) / data.f / data.f);
+	}
 };
 template<class T>
 Dnum<T> Sin(Dnum<T> g);

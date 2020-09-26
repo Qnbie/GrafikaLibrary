@@ -1,30 +1,6 @@
 #include "Dnum.h"
 
 template<class T>
-Dnum<T> Dnum<T>::operator+(Dnum<T> data)
-{
-    return Dnum<T>(f+data.f, d+data.d);
-}
-
-template<class T>
-Dnum<T> Dnum<T>::operator-(Dnum<T> data)
-{
-    return Dnum<T>(f-data.f, d-data.d);
-}
-
-template<class T>
-Dnum<T> Dnum<T>::operator*(Dnum<T> data)
-{
-    return Dnum<T>(f+data.f, d*data.f + f*data.d);
-}
-
-template<class T>
-Dnum<T> Dnum<T>::operator/(Dnum<T> data)
-{
-    return Dnum<T>(f/data.f, (d * data.f + f * data.d)/data.f/data.f);
-}
-
-template<class T>
 Dnum<T> Sin(Dnum<T> g)
 {
     return Dnum<T>(sinf(g.f), cosf(g.f)*g.d);
