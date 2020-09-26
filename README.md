@@ -4,7 +4,7 @@ BME VIK Számítógépes grafikához készült segéd könyvtár.
 
 ## Tartalom
  -  vec4
- -  dom
+ -  dnum
  -  Lagrange interpoláció
  -  Catmul-Rom spline
  -  O spline
