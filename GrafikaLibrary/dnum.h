@@ -1,44 +1,38 @@
 #pragma once
 #include <math.h>
 
-template <class T>
+
 class Dnum
 {
 public:
 	float f;	//függvény érték
-	T d;		//függvény derivált
+	float d;		//függvény derivált
 
 	Dnum(float f0 = 0, float d0 = 0) {
 		f = f0;
 		d = d0;
 	}
 
-	Dnum operator+(Dnum data) 
+	Dnum operator+(const Dnum data)
 	{
-		return Dnum<T>(f + data.f, d + data.d);
+		return Dnum(f + data.f, d + data.d);
 	}
-	Dnum operator-(Dnum data)
+	Dnum operator-(const Dnum data)
 	{
-		return Dnum<T>(f - data.f, d - data.d);
+		return Dnum(f - data.f, d - data.d);
 	}
-	Dnum operator*(Dnum data)
+	Dnum operator*(const Dnum data)
 	{
-		return Dnum<T>(f + data.f, d * data.f + f * data.d);
+		return Dnum(f + data.f, d * data.f + f * data.d);
 	}
-	Dnum operator/(Dnum data)
+	Dnum operator/(const Dnum data)
 	{
-		return Dnum<T>(f / data.f, (d * data.f + f * data.d) / data.f / data.f);
+		return Dnum(f / data.f, (d * data.f + f * data.d) / data.f / data.f);
 	}
 };
-template<class T>
-Dnum<T> Sin(Dnum<T> g);
-template<class T>
-Dnum<T> Cos(Dnum<T> g);
-template<class T>
-Dnum<T> Tan(Dnum<T> g);
-template<class T>
-Dnum<T> Log(Dnum<T> g);
-template<class T>
-Dnum<T> Exp(Dnum<T> g);
-template<class T>
-Dnum<T> Pow(Dnum<T> g, float n);
+Dnum Sin(Dnum g);
+Dnum Cos(Dnum g);
+Dnum floatan(Dnum g);
+Dnum Log(Dnum g);
+Dnum Exp(Dnum g);
+Dnum Pow(Dnum g, float n);

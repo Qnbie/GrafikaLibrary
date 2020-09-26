@@ -5,12 +5,12 @@
 
 class Bezier
 {
-	std::vector<Vec4<Dnum<float>>> controlPoints;
+	std::vector<vec4> controlPoints;
 	float B(int j, float t);
 public:
-	void AddControlpoint(Vec4<Dnum<float>> point) {
+	void AddControlpoint(vec4 point) {
 		controlPoints.push_back(point);
 	}
-	Vec4<Dnum<float>>	r(float t);
+	vec4 r(float t);
 };
 

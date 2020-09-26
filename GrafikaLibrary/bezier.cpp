@@ -4,18 +4,19 @@ float Bezier::B(int i, float t)
 {
     int n = controlPoints.size() - 1;
     float choose = 1;
-    for (size_t j = 0; j <= i; j++)
+    for (int j = 1; j <= i; j++)
     {
-        choose *= (float)(n - j + 1) / i;
+        choose *= (float)(n - j + 1) / j;
     }
     return choose * pow(t, i) * pow(1 - t, n - i);
 }
 
-Vec4<Dnum<float>> Bezier::r(float t)
+vec4 Bezier::r(float t)
 {
-    Vec4<Dnum<float>> resoult(0, 0, 0, 0);
+    vec4 resoult = vec4(0, 0, 0, 0);
     for (size_t i = 0; i < controlPoints.size(); i++)
     {
+        resoult.print();
         resoult = resoult + controlPoints[i] * B(i, t);
     }
     return resoult;

@@ -1,22 +1,22 @@
 #include "vec4.h"
 
-//skaláris szorzat
-template<class T>
-T Vec4<T>::dot(const Vec4<T> data) {
-	return this->x * data.x + this->y * data.y + this->z * data.z + this->w * data * w;
+
+Dnum dot( vec4 p, vec4 q)
+{
+	return p.x * q.x + p.y * q.y + p.z * q.z + p.w * q.w;
 }
 
-template<class T>
-T Vec4<T>::lenght() {
-	return sqrtf(this->dot(this));
+Dnum lenght(vec4 p)
+{
+	return sqrtf(dot(p,p).f);
 }
 
-template<class T>
-Vec4<T> Vec4<T>::normailze() {
-	return this * (1 / this->lenght);
+vec4 normailze(vec4 p)
+{
+	return p * (1 / lenght(p).f);
 }
 
-template<class T>
-Vec4<T> Vec4<T>::lerp(const Vec4<T> data, const T t) {
-	return this * (1 - t) + data * t;
+vec4 lerp(vec4 p, vec4 q, float t)
+{
+	return p * (1 - t) + q * t;
 }

@@ -1,57 +1,34 @@
 ﻿#pragma once
+#include <iostream>
 #include <math.h>
 
-template <class T>
-class Vec4
+#include "dnum.h"
+
+class vec4
 {
 public:
-	T x, y, z, w;
+	float x, y, z, w;
 
-	Vec4(T x0, T y0, T z0, T w0) {
-		this->x = x0;
-		this->y = y0;
-		this->z = z0;
-		this->w = w0;
-	}
+	vec4(float x0 = 0, float y0 = 0, float z0 = 0, float w0 = 0) { x = x0; y = y0; z = z0; w = w0; }
+	float& operator[](int j) { return *(&x + j); }
+	float operator[](int j) const { return *(&x + j); }
 
-	//alapműveletek
-	Vec4<T> operator+(Vec4<T> data) {
-		return Vec4(
-			x = x + data.x,
-			y = y + data.y,
-			z = z + data.z,
-			w = w + data.w
-		);
-	}
-	Vec4<T> operator-(const Vec4<T> data) {
-		return Vec4(
-			x = x - data.x,
-			y = y - data.y,
-			z = z - data.z,
-			w = w - data.w
-		);
-	}
-	Vec4<T> operator*(const Vec4 data) {
-		return Vec4(
-			x = x * data.x,
-			y = y * data.y,
-			z = z * data.z,
-			w = w * data.w
-		);
-	}
-	Vec4<T> operator*(const T data) {
-		return Vec4(
-			this->x = this->x * data,
-			this->y = this->y * data,
-			this->z = this->z * data,
-			this->w = this->w * data
-		);
-	}
+	vec4 operator*(float a) const { return vec4(x * a, y * a, z * a, w * a); }
+	vec4 operator/(float d) const { return vec4(x / d, y / d, z / d, w / d); }
+	vec4 operator+(const vec4& v) const { return vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
+	vec4 operator-(const vec4& v)  const { return vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
+	vec4 operator*(const vec4& v) const { return vec4(x * v.x, y * v.y, z * v.z, w * v.w); }
+	void operator+=(const vec4 right) { x += right.x; y += right.y; z += right.z, w += right.z; }
 
-	//további műveletek
-	T dot(const Vec4 data);
-	T lenght();
-	Vec4 normailze();
-	Vec4 lerp(const Vec4 data, const T t);
+	void print() {
+		std::cout << "X: " << x << ", ";
+		std::cout << "Y: " << y << ", ";
+		std::cout << "Z: " << z << ", ";
+		std::cout << "W: " << w << std::endl;
+	}
 };
 
+Dnum dot(const vec4 p, const vec4 q);
+Dnum lenght(const vec4 p);
+vec4 normailze(const vec4 p);
+vec4 lerp(const vec4 p, const vec4 q, const float t);

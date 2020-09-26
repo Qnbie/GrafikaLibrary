@@ -1,37 +1,37 @@
 #include "Dnum.h"
 
-template<class T>
-Dnum<T> Sin(Dnum<T> g)
+
+Dnum Sin(Dnum g)
 {
-    return Dnum<T>(sinf(g.f), cosf(g.f)*g.d);
+    return Dnum(sinf(g.f), cosf(g.f)*g.d);
 }
 
-template<class T>
-Dnum<T> Cos(Dnum<T> g)
+
+Dnum Cos(Dnum g)
 {
-    return Dnum<T>(cosf(g.f), sinf(g.f) * g.d);
+    return Dnum(cosf(g.f), sinf(g.f) * g.d);
 }
 
-template<class T>
-Dnum<T> Tan(Dnum<T> g)
+
+Dnum Tan(Dnum g)
 {
     return Sin(g)/Cos(g);
 }
 
-template<class T>
-Dnum<T> Log(Dnum<T> g)
+
+Dnum Log(Dnum g)
 {
-    return Dnum<T>(logf(g.f), 1/g.f * g.d);
+    return Dnum(logf(g.f), 1/g.f * g.d);
 }
 
-template<class T>
-Dnum<T> Exp(Dnum<T> g)
+
+Dnum Exp(Dnum g)
 {
-    return Dnum<T>(expf(g.f), expf(g.f) * g.d);
+    return Dnum(expf(g.f), expf(g.f) * g.d);
 }
 
-template<class T>
-Dnum<T> Pow(Dnum<T> g, float n)
+
+Dnum Pow(Dnum g, float n)
 {
-    return Dnum<T>(powf(g.f, n), n*powf(g.f, n-1) * g.d);
+    return Dnum(powf(g.f, n), n*powf(g.f, n-1) * g.d);
 }
