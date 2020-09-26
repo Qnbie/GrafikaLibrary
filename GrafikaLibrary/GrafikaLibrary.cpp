@@ -4,9 +4,11 @@
 #include <iostream>
 #include "lagrange.h"
 #include "bezier.h"
+#include "catmul_rom.h"
 
 int main()
 {
+    std::cout << "Lagrange" << std::endl;
     Lagrange lagrange;
     lagrange.AddControlpoint(vec4(6, 1, 0, 0),0);
     lagrange.AddControlpoint(vec4(6, 6, 0, 0),1);
@@ -14,7 +16,7 @@ int main()
     float t = 1.5;
     vec4 tmp = lagrange.r(t);
     tmp.print();
-    std::cout << "FASZ" << std::endl;
+    std::cout << "Bezier" << std::endl;
     Bezier bezier;
     bezier.AddControlpoint(vec4(6, 1, 0, 0));
     bezier.AddControlpoint(vec4(6, 6, 0, 0));
@@ -22,4 +24,13 @@ int main()
     t = 0.5;
     vec4 tmp2 = bezier.r(t);
     tmp2.print();
+    std::cout << "Catmul-Rom" << std::endl;
+    Catmul_rom catmul_rom;
+    catmul_rom.AddControlpoint(vec4(6, 1, 0, 0),1);
+    catmul_rom.AddControlpoint(vec4(6, 6, 0, 0),2);
+    catmul_rom.AddControlpoint(vec4(4, 8, 0, 0),3);
+    catmul_rom.AddControlpoint(vec4(5, 3, 0, 0),4);
+    t = 3;
+    vec4 tmp3 = catmul_rom.r(t);
+    tmp3.print();
 }
