@@ -30,6 +30,9 @@
     <ClCompile Include="bezier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="catmul_rom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vec4.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="bezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="catmul_rom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

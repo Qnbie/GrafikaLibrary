@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bezier.cpp" />
+    <ClCompile Include="catmul_rom.cpp" />
     <ClCompile Include="dnum.cpp" />
     <ClCompile Include="GrafikaLibrary.cpp" />
     <ClCompile Include="lagrange.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bezier.h" />
+    <ClInclude Include="catmul_rom.h" />
     <ClInclude Include="dnum.h" />
     <ClInclude Include="lagrange.h" />
     <ClInclude Include="vec4.h" />
