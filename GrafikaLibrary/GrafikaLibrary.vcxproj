@@ -144,6 +144,7 @@
     <ClCompile Include="dnum.cpp" />
     <ClCompile Include="GrafikaLibrary.cpp" />
     <ClCompile Include="lagrange.cpp" />
+    <ClCompile Include="O_spline.cpp" />
     <ClCompile Include="vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="catmul_rom.h" />
     <ClInclude Include="dnum.h" />
     <ClInclude Include="lagrange.h" />
+    <ClInclude Include="O_spline.h" />
     <ClInclude Include="vec4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

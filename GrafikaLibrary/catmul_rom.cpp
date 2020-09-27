@@ -17,7 +17,8 @@ vec4 Catmul_rom::r(float t)
             vec4 v0(0,0,0,0), v1(0,0,0,0);
             if (i == 0)
                 v0 = v(
-                    controlPoints[controlPoints.size()-1], knots[knots.size()-1],
+                    //controlPoints[controlPoints.size()-1], knots[knots.size()-1],
+                    vec4(0,0,0,0),0,
                     controlPoints[i], knots[i],
                     controlPoints[i + 1], knots[i + 1]);
             else
